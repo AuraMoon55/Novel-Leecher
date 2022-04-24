@@ -9,6 +9,7 @@
 
 <p align="left">
 - <code>/start</code> ~ Check Bot is working or not
+
 - <code>/novel chapter-url</code> ~ Get telegraph link of chapter 
 </p>
 
