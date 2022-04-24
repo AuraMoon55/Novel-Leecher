@@ -21,7 +21,8 @@
 
 <details>
 <summary><b>🔗 Requirements</b></summary>
-- [Python3.9](https://www.python.org/downloads/release/python-390/)
+
+- [Python3.9](https://www.python.org/downloads/release/python-390)
 
 - [Telegram API Key](https://docs.pyrogram.org/intro/setup#api-keys)
 
