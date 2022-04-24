@@ -1,0 +1,16 @@
+{
+  "env": {
+    "ID": {
+      "required": false
+    },
+    "HASH": {
+      "required": false
+    },
+    "TOKEN": {
+      "required": false
+    },
+    "OWNER": {
+      "required": false
+    },
+  }
+}
