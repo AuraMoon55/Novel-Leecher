@@ -8,6 +8,7 @@
 </p>
 
 <p align="left">
+
 - <code>/start</code> ~ Check Bot is working or not
 
 - <code>/novel chapter-url</code> ~ Get telegraph link of chapter 
@@ -21,10 +22,15 @@
 <details>
 <summary><b>🔗 Requirements</b></summary>
 - [Python3.9](https://www.python.org/downloads/release/python-390/)
+
 - [Telegram API Key](https://docs.pyrogram.org/intro/setup#api-keys)
+
 - [Cloudscraper](https://github.com/VeNoMouS/cloudscraper)
+
 - [BS4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+
 - [Telegraph](https://github.com/python273/telegraph)
+
 </details>
 
 
