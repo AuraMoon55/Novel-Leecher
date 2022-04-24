@@ -1,6 +1,6 @@
 # Nocturnetls-Novel-Leecher
 
-<p align="center"><img src="https://techzbotsapi.herokuapp.com/logo/Nocternetls-Novel-Leecher" alt="ICON" width="250" height="250"/></p>
+<p align="center"><img src="https://telegra.ph//file/f782cddaa70704bc5561c.jpg" alt="ICON" width="250" height="250"/></p>
 
 
 <p align="center">
