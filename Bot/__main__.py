@@ -1,14 +1,14 @@
-from Bot import app, OWNER
+from Bot import app
 from .utils import Nocturnetls
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
-@app.on_message(filters.command("start") & filters.user(OWNER))
+@app.on_message(filters.command("start"))
 async def start(_, message):
   await message.reply_text("Im Alive")
 
-@app.on_message(filters.command("novel") & filters.user(OWNER))
+@app.on_message(filters.command("novel"))
 async def novel(_, message):
   query = message.text.split(" ", maxsplit=1)[1]
   if query:
