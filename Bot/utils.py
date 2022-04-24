@@ -4,7 +4,7 @@ from telegraph import Telegraph
 
 class Nocturnetls:
 
-  def __init__(self, url=None):
+  def __init__(self, url):
     self.url = url
     self.req = cloudscraper.create_scraper()
     self.novel = {}
