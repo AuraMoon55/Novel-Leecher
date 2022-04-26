@@ -9,57 +9,36 @@ class Nocturnetls:
     self.req = cloudscraper.create_scraper()
     self.novel = {}
 
-  def get_novel(self):
-    title1 = (self.url.split("/")[-1]).split("-")
-    for tit in title1:
-      nt = tit.capitalize()
-      title1 = list(map(lambda x: x.replace(tit, nt), title1))
-    title1 = " ".join(nt for nt in title1)
-    title2 = (self.url.split("/")[-2]).split("-")
-    for tit in title2:
-      nt = tit.capitalize()
-      title2 = list(map(lambda x: x.replace(tit, nt), title2))
-    title2 = " ".join(nt for nt in title2)
-    title = title1 + " " + title2
-    cover = self.get_cover()
-    tele = self.get_graph()
-    fname = title + ".txt"
-    cont =  "<p><b>" + title + "</b><br><br><br>"
-    cont += f"<img src='{cover}'><br>"
+  def dung(self):
     s = self.req.get(self.url)
-    soup = BeautifulSoup(s.content, "html.parser")
-    paras = soup.find_all("span")
-    lim = []
-    for para in paras:
-      x = para.get("data-sheets-hyperlinkruns")
-      if x:
-        lim.append(paras.index(para))
-    start = int(lim[0]) + 1
-    end = int(lim[1])
-    paras = paras[start:end]
-    for para in paras:
-      cont += f"{para.string}<br>"
-    cont += "</p>"
-    fname = tele.create_page(title=title, html_content=cont)
-    self.novel['name'] = title
-    self.novel['file'] = fname["url"]
-    self.novel['cover'] = cover
+    sp = bs(s.content, "html.parser")
+    body = sp.find_all("p")
+    tx = (self.url.split("/")[-1]).split(".")[0]
+    tx = tx.replace("-", " ")
+    txt = ""
+    for body in body[:-1]:
+      txt += str(body) 
+    txt = txt.replace("strong>", "b>")
+    return txt
+
+
+  def puck(self):
+    txt = str(self.dung())
+    while "CAPTCHA" in txt:
+      txt = str(self.dung())
+    return txt
+
+  def get_novel(self):
+    t = self.get_graph()
+    tx = self.url.split("/")[-1]
+    tx = tx.split(".")[0]
+    tx = tx.replace("-", " ")
+    txt = self.puck()
+    uri = t.create_page(title=tx, author_name="Horni Senpai", author_url="https://telegram.dog/Horni_Senpaii", html_content=txt)["url"]
+    self.novel['name'] = tx
+    self.novel['uri'] = uri
     return self.novel
 
-  def get_cover(self):
-    cover_uri = self.url.split("/")[:-1]
-    cover_uri = '/'.join(uri for uri in cover_uri)
-    covers = self.req.get(cover_uri)
-    covers = BeautifulSoup(covers.content, "html.parser")
-    covers = covers.find_all("img")
-    for covers in covers:
-      cover_src = covers.get("data-src")
-      if cover_src:
-        cover = cover_src.split("?")[0]
-      else:
-        pass
-    return cover
-  
   def get_graph(self):
     tele = Telegraph()
     tel = tele.create_account("AuraMoon-noct")
